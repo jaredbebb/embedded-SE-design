@@ -151,11 +151,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Element.h" />
+    <ClInclude Include="IntElement.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="amazon-embedded-SE-interview-prep.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Element.cpp" />
+    <ClCompile Include="IntElement.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
