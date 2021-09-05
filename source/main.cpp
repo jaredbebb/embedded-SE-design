@@ -1,12 +1,12 @@
-﻿// amazon-embedded-SE-interview-prep.cpp : Defines the entry point for the application.
+﻿// main.cpp : Defines the entry point for the application.
 //
 
 #include "main.h"
 
-#include "algs_structs/IntElement.h"
-#include "algs_structs/IntElement.h"
-#include "algs_structs/LinkedList.h"
-#include "algs_structs/Util.h"
+#include "IntElement.h"
+#include "IntElement.h"
+#include "LinkedList.h"
+#include "Util.h"
 
 using namespace std;
 
@@ -28,9 +28,6 @@ int main()
 	t->key = 16;
 	t->next_ = 0;
 
-
-
-
 	IntElement * x = nullptr;
 	LinkedList L;
 	L.head = h;
@@ -48,7 +45,6 @@ int main()
 	// No Item in list
 	x = List_Search(L, 777);
 	std::cout << x->key << "\n";
-
 
 	return 0;
 }

@@ -1,4 +1,4 @@
-﻿// amazon-embedded-SE-interview-prep.h : Include file for standard system include files,
+﻿// main.h : Include file for standard system include files,
 // or project specific include files.
 
 #pragma once

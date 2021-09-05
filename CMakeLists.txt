@@ -3,7 +3,11 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-project ("amazon-embedded-SE-interview-prep")
+project ("embedded")
 
 # Include sub-projects.
 add_subdirectory ("source")
+add_subdirectory("lib")
+add_subdirectory ("test")
+
+
