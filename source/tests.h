@@ -8,6 +8,7 @@
 #include "LinkedList.h"
 #include "Util.h"
 #include "HashTableDivisionMethod.h"
+#include <string>
 
 #define DEBUG
 
@@ -15,6 +16,19 @@
 #include <iostream>
 
 using namespace std;
+
+int Test_HashTable() {
+	HashTableDivisionMethod<int, int> p1;
+
+	assert(5 == p1[5]);
+	assert(3 == p1[704]);
+
+	HashTableDivisionMethod<std::string, int > p2;
+	std::string s1 = "key";
+	assert(329 == p2.hashfunction(s1));
+
+	return 0;
+}
 
 
 int Test_List()
@@ -91,18 +105,6 @@ int Test_List()
 		assert(h == x->next_);
 		assert(nullptr == x->prev_);
 	}
-
-	return 0;
-}
-
-
-int Test_HashTable(){
-	HashTableDivisionMethod<int, int> p1;
-	HashTableDivisionMethod<int, int> p2;
-
-	assert(5 == p1[5]);
-	assert(3 == p1[704]);
-	assert(3 == p1.hashfunction(704));
 
 	return 0;
 }

@@ -1,13 +1,13 @@
-template< typename K = int, typename V = int  >
+template< typename K, typename V  >
 class HashTableBase
 {
 public:
-	virtual int operator[](K key);
-	virtual int hashfunction(K key)=0;
+	virtual V operator[](K key);
+	virtual V hashfunction(K key)=0;
 };
 
 template< typename K, typename V >
-int HashTableBase< K, V >::operator[](K key)
+V HashTableBase< K, V >::operator[](K key)
 {
 	return hashfunction(key);
 }
