@@ -1,19 +1,13 @@
 #include "HashTableBase.h"
 #include <string>
 #include <numeric>
-using namespace std;
 
+using namespace std;
 
 template< class K, typename V  >
 class HashTableDivisionMethod : public HashTableBase<K,V>
 {
 public:
-	//const int num_slots = 1000;
-	//double numbers[num_slots]{ 0 };
-
-	const int m = 701; // number of slots
-	int * T; // array representing hash table slots
-
 	
 	virtual V hashfunction(K key);
 	HashTableDivisionMethod();
@@ -21,7 +15,7 @@ public:
 
 template< class K, typename V >
 HashTableDivisionMethod< K, V >::HashTableDivisionMethod(): 
-	T(new int[m])
+	HashTableBase()
 {
 }
 

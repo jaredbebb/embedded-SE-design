@@ -18,14 +18,25 @@
 using namespace std;
 
 int Test_HashTable() {
-	HashTableDivisionMethod<int, int> p1;
+	{
+		// Test retrieving items
+		HashTableDivisionMethod<int, int> p1;
 
-	assert(5 == p1[5]);
-	assert(3 == p1[704]);
-
-	HashTableDivisionMethod<std::string, int > p2;
-	std::string s1 = "key";
-	assert(329 == p2.hashfunction(s1));
+		assert(5 == p1[5]);
+		assert(3 == p1[704]);
+	}
+	{
+		// Test retrieving hash
+		HashTableDivisionMethod<std::string, int > p1;
+		std::string s1 = "key";
+		assert(329 == p1.hashfunction(s1));
+	}
+	{
+		// Test inserting new/updating values
+		HashTableDivisionMethod<int, int> p1;
+		p1.insert(5, 12);
+		p1.insert(5, 12);
+	}
 
 	return 0;
 }
