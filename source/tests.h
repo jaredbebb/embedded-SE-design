@@ -7,7 +7,7 @@
 #include "IntElement.h"
 #include "LinkedList.h"
 #include "Util.h"
-#include "HashTable.h"
+#include "HashTableDivisionMethod.h"
 
 #define DEBUG
 
@@ -97,8 +97,8 @@ int Test_List()
 
 
 int Test_HashTable(){
-	IntHashTable<int> p1;
-	IntHashTable<int> p2;
+	HashTableDivisionMethod<int, int> p1;
+	HashTableDivisionMethod<int, int> p2;
 
 	assert(5 == p1[5]);
 	assert(3 == p1[704]);

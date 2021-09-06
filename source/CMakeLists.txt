@@ -8,14 +8,14 @@ set(BINARY ${CMAKE_PROJECT_NAME})
 
 set( SOURCES
 	Element.h
-	HashTable.h
+	HashTableBase.h
+	HashTableDivisionMethod.h
 	IntElement.h
 	LinkedList.h
 	Util.h
 	Tests.h
 
 	Element.cpp
-	HashTable.cpp
 	LinkedList.cpp
 	IntElement.cpp
 )
