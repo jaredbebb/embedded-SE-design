@@ -8,13 +8,20 @@ template< class K, typename V  >
 class HashTableDivisionMethod : public HashTableBase<K,V>
 {
 public:
-	int m; // number of slots
+	//const int num_slots = 1000;
+	//double numbers[num_slots]{ 0 };
+
+	const int m = 701; // number of slots
+	int * T; // array representing hash table slots
+
+	
 	virtual V hashfunction(K key);
 	HashTableDivisionMethod();
 };
 
 template< class K, typename V >
-HashTableDivisionMethod< K, V >::HashTableDivisionMethod(): m(701)
+HashTableDivisionMethod< K, V >::HashTableDivisionMethod(): 
+	T(new int[m])
 {
 }
 
