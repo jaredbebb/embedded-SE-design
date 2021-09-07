@@ -46,10 +46,10 @@ int Test_List()
 {
 
 	{
-		LinkedList L;
-		IntElement * h = new IntElement;
-		IntElement * t = new IntElement;
-		IntElement * n = new IntElement;
+		LinkedList <IntElement<int>> L;
+		IntElement<int> * h = new IntElement<int>;
+		IntElement<int> * t = new IntElement<int>;
+		IntElement<int> * n = new IntElement<int>;
 
 		h->prev_ = 0;
 		h->key = 9;
@@ -64,34 +64,34 @@ int Test_List()
 		t->next_ = 0;
 
 
-		IntElement * x = nullptr;
+		IntElement<int> * x = nullptr;
 		
 		L.head = h;
 		L.tail = t;
 
 		// List Search
-		x = List_Search(L, 9);
+		x = L.search(9);
 		assert(9 == x->key);
 		std::cout << x->key << "\n";
 
-		x = List_Search(L, 5);
+		x = L.search(5);
 		assert(5 == x->key);
 		std::cout << x->key << "\n";
 
-		x = List_Search(L, 16);
+		x = L.search(16);
 		assert(16 == x->key);
 		std::cout << x->key << "\n";
 
 		// No Item in list
-		x = List_Search(L, 777);
+		x = L.search(777);
 		assert(16 == x->key);
 	}
 	
 	{
-		LinkedList L;
-		IntElement * h = new IntElement;
-		IntElement * t = new IntElement;
-		IntElement * n = new IntElement;
+		LinkedList <IntElement<int>> L;
+		IntElement<int> * h = new IntElement<int>;
+		IntElement<int> * t = new IntElement<int>;
+		IntElement<int> * n = new IntElement<int>;
 
 		h->prev_ = 0;
 		h->key = 9;
@@ -105,13 +105,13 @@ int Test_List()
 		t->key = 16;
 		t->next_ = 0;
 
-		IntElement * x = new IntElement;
+		IntElement<int> * x = new IntElement<int>;
 
 		L.head = h;
 		L.tail = t;
 
 		// List_Insert(LinkedList L, IntElement * x)
-		List_Insert(L, x);
+		L.insert( x);
 		assert(x == L.head);
 		assert(h == x->next_);
 		assert(nullptr == x->prev_);
