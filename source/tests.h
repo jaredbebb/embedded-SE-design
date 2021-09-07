@@ -1,12 +1,5 @@
-// main.cpp : Defines the entry point for the application.
-//
-
-
-
-#include "IntElement.h"
 #include "IntElement.h"
 #include "LinkedList.h"
-#include "Util.h"
 #include "HashTableDivisionMethod.h"
 #include <string>
 
@@ -44,7 +37,6 @@ int Test_HashTable() {
 
 int Test_List()
 {
-
 	{
 		LinkedList <IntElement<int>> L;
 		IntElement<int> * h = new IntElement<int>;

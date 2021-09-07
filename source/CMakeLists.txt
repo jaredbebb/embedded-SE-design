@@ -12,12 +12,9 @@ set( SOURCES
 	HashTableDivisionMethod.h
 	IntElement.h
 	LinkedList.h
-	Util.h
 	Tests.h
 
 	Element.cpp
-	LinkedList.cpp
-	IntElement.cpp
 )
 
 add_executable(${BINARY}_run ${SOURCES})

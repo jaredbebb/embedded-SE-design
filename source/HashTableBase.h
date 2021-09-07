@@ -13,7 +13,6 @@ public:
 	virtual V hashfunction(K key)=0;
 };
 
-
 template< class K, typename V >
 HashTableBase< K, V >::HashTableBase() :
 	T(new LinkedList <IntElement<int>> [m])
