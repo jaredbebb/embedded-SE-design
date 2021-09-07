@@ -3,7 +3,7 @@
 
 template< typename K  >
 class IntElement :
-	public Element
+	public Element<K>
 {
 public:
 	IntElement();
