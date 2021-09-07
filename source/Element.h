@@ -2,11 +2,26 @@
 template< typename K  >
 class Element
 {
-// TODO make Element Template class
 public:
 	Element * prev_;
 	Element * next_;
 	K key;
+
+	Element();
+	virtual ~Element();
 };
+
+template< typename K  >
+Element<K>::Element() :
+	prev_(nullptr),
+	next_(nullptr)
+{
+}
+
+template< typename K  >
+Element<K>::~Element()
+{
+}
+
 
 

@@ -1,4 +1,4 @@
-#include "IntElement.h"
+#include "Element.h"
 #include "LinkedList.h"
 #include "HashTableDivisionMethod.h"
 #include <string>
@@ -38,10 +38,10 @@ int Test_HashTable() {
 int Test_List()
 {
 	{
-		LinkedList <IntElement<int>> L;
-		IntElement<int> * h = new IntElement<int>;
-		IntElement<int> * t = new IntElement<int>;
-		IntElement<int> * n = new IntElement<int>;
+		LinkedList <Element<int>> L;
+		Element<int> * h = new Element<int>;
+		Element<int> * t = new Element<int>;
+		Element<int> * n = new Element<int>;
 
 		h->prev_ = 0;
 		h->key = 9;
@@ -56,7 +56,7 @@ int Test_List()
 		t->next_ = 0;
 
 
-		IntElement<int> * x = nullptr;
+		Element<int> * x = nullptr;
 		
 		L.head = h;
 		L.tail = t;
@@ -80,10 +80,10 @@ int Test_List()
 	}
 	
 	{
-		LinkedList <IntElement<int>> L;
-		IntElement<int> * h = new IntElement<int>;
-		IntElement<int> * t = new IntElement<int>;
-		IntElement<int> * n = new IntElement<int>;
+		LinkedList <Element<int>> L;
+		Element<int> * h = new Element<int>;
+		Element<int> * t = new Element<int>;
+		Element<int> * n = new Element<int>;
 
 		h->prev_ = 0;
 		h->key = 9;
@@ -97,12 +97,12 @@ int Test_List()
 		t->key = 16;
 		t->next_ = 0;
 
-		IntElement<int> * x = new IntElement<int>;
+		Element<int> * x = new Element<int>;
 
 		L.head = h;
 		L.tail = t;
 
-		// List_Insert(LinkedList L, IntElement * x)
+		// List_Insert(LinkedList L, Element * x)
 		L.insert( x);
 		assert(x == L.head);
 		assert(h == x->next_);

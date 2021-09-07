@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IntElement.h"
+#include "Element.h"
 
 template< typename K  >
 class LinkedList
@@ -9,8 +9,8 @@ public:
 	LinkedList();
 	~LinkedList();
 
-	IntElement<int> * head;
-	IntElement<int> * tail;
+	Element<int> * head;
+	Element<int> * tail;
 
 	K * search(int k);
 	void insert(K * x);
@@ -22,9 +22,9 @@ private:
 // Searching a linked list CLRS p.237
 template< typename K  >
 K * LinkedList<K>::search(int k)
-//IntElement * List_Search(LinkedList & L, int k)
+//Element * List_Search(LinkedList & L, int k)
 {
-	IntElement<int> * x = head;
+	Element<int> * x = head;
 	// 0 is null
 	while (x->next_ != nullptr && x->key != k)
 	{
@@ -35,7 +35,7 @@ K * LinkedList<K>::search(int k)
 
 template< typename K  >
 void LinkedList<K>::insert(K * x)
-//void List_Insert(LinkedList & L, IntElement * x)
+//void List_Insert(LinkedList & L, Element * x)
 {
 	x->next_ = head;
 	if (head != nullptr)
@@ -49,8 +49,8 @@ void LinkedList<K>::insert(K * x)
 template< typename K  >
 LinkedList<K>::LinkedList()
 {
-	head = new IntElement<int>;
-	tail = new IntElement<int>;
+	head = new Element<int>;
+	tail = new Element<int>;
 }
 
 template< typename K  >
