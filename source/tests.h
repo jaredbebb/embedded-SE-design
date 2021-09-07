@@ -30,7 +30,6 @@ int Test_HashTable() {
 		p1.insert(5, 12);
 		p1.insert(5, 12);
 	}
-
 	return 0;
 }
 
@@ -78,7 +77,6 @@ int Test_List()
 		x = L.search(777);
 		assert(16 == x->key);
 	}
-	
 	{
 		LinkedList <Element<int>> L;
 		Element<int> * h = new Element<int>;

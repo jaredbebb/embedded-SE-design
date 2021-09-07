@@ -2,8 +2,6 @@
 //
 
 #include <iostream>
-
-#include "IntElement.h"
 #include "Tests.h"
 
 using namespace std;

@@ -8,13 +8,11 @@ set(BINARY ${CMAKE_PROJECT_NAME})
 
 set( SOURCES
 	Element.h
+	Element.cpp
 	HashTableBase.h
 	HashTableDivisionMethod.h
-	IntElement.h
 	LinkedList.h
 	Tests.h
-
-	Element.cpp
 )
 
 add_executable(${BINARY}_run ${SOURCES})
