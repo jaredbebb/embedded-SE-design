@@ -1,6 +1,8 @@
 #include "Element.h"
 #include "LinkedList.h"
 #include "HashTableDivisionMethod.h"
+#include "Queue.h"
+
 #include <string>
 
 #define DEBUG
@@ -9,6 +11,22 @@
 #include <iostream>
 
 using namespace std;
+
+int Test_Queue() {
+	// Enqueue
+	{
+		Queue<int> q;
+	}
+	
+	// Dequeue
+	{
+		Queue<int> q;
+	}
+	
+	
+	return 0;
+}
+
 
 int Test_HashTable() {
 	{

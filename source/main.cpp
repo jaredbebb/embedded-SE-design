@@ -8,8 +8,10 @@ using namespace std;
 
 int main()
 {
-	Test_List();
+	Test_Queue();
 	Test_HashTable();
+	Test_List();
+
 
 	return 0;
 }
