@@ -16,27 +16,38 @@ template< typename K  >
 Queue<K>::Queue():
 	DynamicSet<K>::DynamicSet(),
 	head(0),
-	tail(1)
+	tail(0)
 {
 }
 
 template< typename K  >
 void Queue<K>::Insert(K element) 
 {
+	// Overflow condition
+	if (tail == n)
+	{
+		tail = 0;
+	}
 	D[tail] = element;
-	if (tail == length())
-	{
-		tail = 1;
-	}
-	else
-	{
-		head =+ 1;
-	}
+	tail += 1;
 }
 
 template< typename K  >
 K Queue<K>::Delete()
 {
-	K k;
-	return k;
+	K x = 0;
+	if (head == tail)
+	{
+		return x;
+	}
+	x = D[head];
+	if (head == n)
+	{
+		head = 0;
+	}
+	else
+	{
+		head +=  1;
+	}
+	return x;
 }

@@ -2,7 +2,7 @@ template< typename K  >
 class DynamicSet
 {
 public:
-	const int n = 120;
+	const int n = 5;
 	K * D = nullptr;
 	DynamicSet();
 	~DynamicSet();
@@ -27,5 +27,5 @@ DynamicSet<K>::~DynamicSet() {
 
 template< typename K  >
 size_t DynamicSet<K>::length() {
-	return sizeof(D) / sizeof(*D);
+	return n - 1;
 }

@@ -7,6 +7,7 @@ class HashTableBase
 public:
 	const int m = 701; // number of slots
 	HashTableBase();
+	virtual ~HashTableBase();
 
 	virtual V operator[](K key); // get value
 	virtual void insert(K key, V value); // set/update value
@@ -18,6 +19,13 @@ template< class K, typename V >
 HashTableBase< K, V >::HashTableBase() :
 	T(new LinkedList <Element<int>> [m])
 {
+}
+
+template< class K, typename V >
+HashTableBase< K, V >::~HashTableBase() 
+{
+	delete [] T;
+	T = nullptr;
 }
 
 template< typename K, typename V >
