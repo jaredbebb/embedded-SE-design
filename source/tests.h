@@ -16,13 +16,13 @@ int Test_Queue() {
 	// Enqueue
 	{
 		Queue<int> q;
+		q.Insert(3);
 	}
 	
 	// Dequeue
 	{
 		Queue<int> q;
 	}
-	
 	
 	return 0;
 }
