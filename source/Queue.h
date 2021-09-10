@@ -1,3 +1,4 @@
+#pragma once
 #include "DynamicSet.h"
 
 template< typename K  >
@@ -24,7 +25,7 @@ template< typename K  >
 void Queue<K>::Insert(K element) 
 {
 	// Overflow condition
-	if (tail == n)
+	if (tail == length())
 	{
 		tail = 0;
 	}
@@ -36,12 +37,13 @@ template< typename K  >
 K Queue<K>::Delete()
 {
 	K x = 0;
+	// Underflow condition
 	if (head == tail)
 	{
 		return x;
 	}
 	x = D[head];
-	if (head == n)
+	if (head == length())
 	{
 		head = 0;
 	}

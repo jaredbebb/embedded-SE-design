@@ -1,3 +1,5 @@
+#pragma once
+
 template< typename K  >
 class DynamicSet
 {
@@ -27,5 +29,5 @@ DynamicSet<K>::~DynamicSet() {
 
 template< typename K  >
 size_t DynamicSet<K>::length() {
-	return n - 1;
+	return n;
 }

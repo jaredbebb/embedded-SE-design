@@ -2,6 +2,7 @@
 #include "LinkedList.h"
 #include "HashTableDivisionMethod.h"
 #include "Queue.h"
+#include "Stack.h"
 
 #include <string>
 
@@ -12,7 +13,42 @@
 
 using namespace std;
 
-int Test_Queue() {
+int Test_Stack()
+{
+	// push
+	{
+		Stack<int> s;
+		for (size_t i = 10; i < 18;  i++) {
+			s.Insert(i);
+		}
+		assert(s.top() == 4);
+	}
+	// pop
+	{
+		Stack<int> s;
+		for (size_t i = 10; i < 18;  i++) {
+			s.Insert(i);
+		}
+		assert(s.Delete() == 17);
+	}
+	// pop underflow
+	{
+		Stack<int> s;
+		bool does_throw = false;
+		try {
+			assert(s.Delete() == 17);
+		}
+		catch (std::underflow_error) {
+			does_throw = true;
+		}
+		assert(does_throw);
+	}
+
+	return 0;
+}
+
+int Test_Queue() 
+{
 	// Enqueue
 	{
 		Queue<int> q;
@@ -25,7 +61,6 @@ int Test_Queue() {
 		q.Insert(16);
 		q.Insert(17);
 	}
-	
 	// Dequeue
 	{
 		Queue<int> q;
@@ -39,7 +74,6 @@ int Test_Queue() {
 		Queue<int> q;
 		int d = q.Delete();
 	}
-	
 	return 0;
 }
 
