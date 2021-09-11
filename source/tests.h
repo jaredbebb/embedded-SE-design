@@ -52,21 +52,17 @@ int Test_Queue()
 	// Enqueue
 	{
 		Queue<int> q;
-		q.Insert(10);
-		q.Insert(11);
-		q.Insert(12);
-		q.Insert(13);
-		q.Insert(14);
-		q.Insert(15);
-		q.Insert(16);
-		q.Insert(17);
+		for (size_t i = 10; i < 18; i++) {
+			q.Insert(i);
+		}
 	}
 	// Dequeue
 	{
 		Queue<int> q;
-		q.Insert(1);
-		q.Insert(2);
-		q.Insert(3);
+		for (size_t i = 1; i < 4; i++)
+		{
+			q.Insert(i);
+		}
 		int d = q.Delete();
 	}
 	// Dequeue underflow
