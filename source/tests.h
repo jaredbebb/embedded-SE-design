@@ -3,6 +3,7 @@
 #include "HashTableDivisionMethod.h"
 #include "Queue.h"
 #include "Stack.h"
+#include "BinaryTree.h"
 
 #include <string>
 
@@ -15,6 +16,43 @@ using namespace std;
 
 int Test_Tree()
 {
+	// insert
+	{
+		BinaryTree<int> root(2);
+		BinaryTree<int> * left = new BinaryTree<int>(1);
+		BinaryTree<int> * right = new BinaryTree<int>(3);
+
+		BinaryTree<int> * leftleft = new BinaryTree<int>(1);
+		BinaryTree<int> * leftright = new BinaryTree<int>(1);
+
+		root.insert(left);
+		root.insert(right);
+		root.insert(leftleft);
+		root.insert(leftright);
+
+		assert(root.left() == left);
+		assert(root.right() == right);
+		assert(root.left()->key() == 1);
+		assert(root.right()->key() == 3);
+
+		assert(left->right()->key() == 1);
+		assert( left->left() == nullptr);
+	}
+	// ensure memory is cleaned up
+	{
+
+	}
+
+	// delete
+	{
+
+	}
+
+	// search
+	{
+
+	}
+
 	return 0;
 }
 
