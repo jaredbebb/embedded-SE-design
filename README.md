@@ -1,6 +1,5 @@
-# amazon-embedded-SE-interview-prep
-Repo to practice potential interview questions
-
+# embedded-SE-design
+Repo to practice embedded software engineering design
 - linked lists 
 - hash tables 
 - queues 

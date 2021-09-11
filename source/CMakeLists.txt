@@ -7,6 +7,7 @@ set(BINARY ${CMAKE_PROJECT_NAME})
 # set (target algs_structs )
 
 set( SOURCES
+	BinaryTree.h
 	DynamicSet.h
 	Element.h
 	Element.cpp

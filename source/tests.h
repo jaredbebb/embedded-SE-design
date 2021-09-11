@@ -13,6 +13,12 @@
 
 using namespace std;
 
+int Test_Tree()
+{
+	return 0;
+}
+
+
 int Test_Stack()
 {
 	// push
@@ -43,7 +49,6 @@ int Test_Stack()
 		}
 		assert(does_throw);
 	}
-
 	return 0;
 }
 

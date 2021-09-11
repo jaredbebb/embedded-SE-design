@@ -8,11 +8,11 @@ using namespace std;
 
 int main()
 {
+	Test_Tree();
 	Test_Stack();
 	Test_Queue();
 	Test_HashTable();
 	Test_List();
-
 
 	return 0;
 }
