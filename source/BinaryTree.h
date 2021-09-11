@@ -1,15 +1,14 @@
-
 template< typename K >
 class BinaryTree
 {
 public:
-
 	BinaryTree * left_;
 	BinaryTree * right_;
 	BinaryTree * p_;
 	K key_;
 
 	BinaryTree(K key);
+	~BinaryTree();
 	void insert(BinaryTree * z); // CLRS p.294
 	K search(K x, K k); // CLRS p. 290
 	void inOrderTreeWalk(K root); // CLRS p. 287
@@ -18,8 +17,17 @@ public:
 	BinaryTree * right();
 	K p();
 	K key();
-
+	static unsigned int count()
+	{
+		return count_;
+	}
+private:
+	// Class counter variable
+	static unsigned int count_;
 };
+
+template< typename K >
+unsigned int BinaryTree<K>::count_ = 0;
 
 template< typename K  >
 BinaryTree<K>::BinaryTree(K key) :
@@ -28,8 +36,25 @@ BinaryTree<K>::BinaryTree(K key) :
 	p_(nullptr),
 	key_(key)
 {
+	++count_;
 }
 
+template< typename K  >
+BinaryTree<K>::~BinaryTree()
+{
+	if (left_ != nullptr)
+	{
+		delete left_;
+		left_ = 0;
+	}
+
+	if (right_ != nullptr)
+	{
+		delete right_;
+		right_ = 0;
+	}
+	--count_;
+}
 
 template< typename K  >
 void BinaryTree<K>::insert(BinaryTree * z)
@@ -49,11 +74,7 @@ void BinaryTree<K>::insert(BinaryTree * z)
 		}
 	}
 	z->p_ = y;
-	if (y == nullptr)
-	{
-		// root = z
-	}
-	else if ( z->key() < y->key() )
+	if ( z->key() < y->key() )
 	{
 		y->left_ = z;
 	}

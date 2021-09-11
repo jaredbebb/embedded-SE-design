@@ -18,6 +18,7 @@ int Test_Tree()
 {
 	// insert
 	{
+
 		BinaryTree<int> root(2);
 		BinaryTree<int> * left = new BinaryTree<int>(1);
 		BinaryTree<int> * right = new BinaryTree<int>(3);
@@ -37,11 +38,33 @@ int Test_Tree()
 
 		assert(left->right()->key() == 1);
 		assert( left->left() == nullptr);
-	}
-	// ensure memory is cleaned up
-	{
 
+		assert(BinaryTree<int>::count() == 5);
 	}
+	// ensure memory is cleaned up responsibly
+	{
+		
+		assert(BinaryTree<int>::count() == 0);
+	}
+	// insert, root is on heap
+	{
+		BinaryTree<int> * root = new BinaryTree<int>(2);
+		BinaryTree<int> * left;
+		BinaryTree<int> * right;
+		{
+			left = new BinaryTree<int>(1);
+			right = new BinaryTree<int>(3);
+			root->insert(left);
+			root->insert(right);
+		}
+
+		delete root;
+		root = 0;
+
+		// ensure memory is cleaned up responsibly
+		assert(BinaryTree<int>::count() == 0);
+	}
+
 
 	// delete
 	{
