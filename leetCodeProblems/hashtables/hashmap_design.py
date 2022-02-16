@@ -64,7 +64,9 @@ class MyHashMap(object):
         :type key: int
         :rtype: None
         """
-        pass
+        i, j = self.search(key, get_indexes=True)
+        self.T[i].pop(j)
+
 
     def hash(self, key):
         """
@@ -122,15 +124,6 @@ if __name__ == "__main__":
     # param_2 = obj.get(key)
     # obj.remove(key)
 
-    key = "a"
-    value = 1
-
-    myHashMap = MyHashMap()
-    myHashMap.put(key,value)
-
-    assert value ==  myHashMap.get(key)
-    myHashMap.remove(key)
-
     # Tests from problem example #1
     myHashMap = MyHashMap()
     myHashMap.put(1, 1); # The map is now [[1,1]]
@@ -152,7 +145,7 @@ if __name__ == "__main__":
 
     assert 1 == myHashMap.get(2);    # return 1, The map is now [[1,1], [2,1]]
     myHashMap.remove(2); # remove the mapping for 2, The map is now [[1,1]]
-    
+
     assert set([1]) == myHashMap.keys()
     assert set([1]) == myHashMap.values()
 
