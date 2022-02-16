@@ -26,7 +26,7 @@ class MyHashMap(object):
         self.m = 701
         self.T = list()
         for i in range(0,self.m):
-            self.T.append(None)
+            self.T.append(list())
 
     def put(self, key, value):
         """
@@ -36,18 +36,26 @@ class MyHashMap(object):
         """
 
         index = self.hash(key)
+        # update value if key exists
+        try:
+            i, j = self.search(key, get_indexes=True)
+        except KeyError:
+            self.T[index].append((key,value)) 
+            return
+        self._update(key, value, i, j)
 
-        # create new list at index if not exist
-        if self.T[index] == None:
-            self.T[index] = list()
-        self.T[index].append((key,value))
+    def _update(self, key, value, i, j):
+        self.T[i][j] = (key, value)
 
     def get(self, key):
         """
         :type key: int
         :rtype: int
         """
-        val = self.search(key)
+        try:
+            val = self.search(key)
+        except KeyError:
+            return -1
         return val
         
 
@@ -58,21 +66,51 @@ class MyHashMap(object):
         """
         pass
 
-    def hash(self, k):
+    def hash(self, key):
         """
         CLRS p. 263
         The division method
         """
-        # convert string to int
-        num_repr = int(key, base=36)
+        if type(key) == str:
+            # convert string to int
+            num_repr = int(key, base=36)
+        else:
+            num_repr =  key
         return num_repr % self.m
 
-    def search(self, k):
-        index = self.hash(key)
-        i = 0
-        while self.T[index][i][0] != key:
-            i+=1
-        return self.T[index][i][1]
+    def search(self, key, get_indexes = False):
+        i = self.hash(key)
+        j = 0
+        key_not_found = True
+        while key_not_found:
+            try:
+                key_not_found = self.T[i][j][0] != key
+            except IndexError:
+                raise KeyError
+            if not key_not_found:
+                break
+            j += 1
+        if get_indexes:
+            return i, j
+        else:
+            return self.T[i][j][1]
+
+    def keys(self):
+        return self.iteritems(0)
+
+    def values(self):
+        return self.iteritems(1)
+
+    def iteritems(self, item):
+        """
+        specify item=0 item=1 to designate keys or values
+        """
+        items = set()
+        for L in self.T:
+            for t in L:
+                items.add(t[item])
+        return items
+
 
         
 
@@ -87,9 +125,36 @@ if __name__ == "__main__":
     key = "a"
     value = 1
 
-    obj = MyHashMap()
-    obj.put(key,value)
+    myHashMap = MyHashMap()
+    myHashMap.put(key,value)
 
-    assert value ==  obj.get(key)
-    obj.remove(key)
+    assert value ==  myHashMap.get(key)
+    myHashMap.remove(key)
+
+    # Tests from problem example #1
+    myHashMap = MyHashMap()
+    myHashMap.put(1, 1); # The map is now [[1,1]]
+
+    assert set([1]) == myHashMap.keys()
+    assert set([1]) == myHashMap.values()
+
+    myHashMap.put(2, 2); # The map is now [[1,1], [2,2]]
+    assert set([1,2]) == myHashMap.keys()
+    assert set([1,2]) == myHashMap.values()
+
+    assert 1 == myHashMap.get(1);    # return 1, The map is now [[1,1], [2,2]]
+    assert -1 == myHashMap.get(3);    # return -1 (i.e., not found), The map is now [[1,1], [2,2]]
+
+    myHashMap.put(2, 1); # The map is now [[1,1], [2,1]] (i.e., update the existing value)
+
+    assert set([1,2]) == myHashMap.keys()
+    assert set([1,1]) == myHashMap.values()
+
+    assert 1 == myHashMap.get(2);    # return 1, The map is now [[1,1], [2,1]]
+    myHashMap.remove(2); # remove the mapping for 2, The map is now [[1,1]]
+    
+    assert set([1]) == myHashMap.keys()
+    assert set([1]) == myHashMap.values()
+
+    assert -1 == myHashMap.get(2);    # return -1 (i.e., not found), The map is now [[1,1]]
 
