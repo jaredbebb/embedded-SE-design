@@ -64,7 +64,10 @@ class MyHashMap(object):
         :type key: int
         :rtype: None
         """
-        i, j = self.search(key, get_indexes=True)
+        try:
+            i, j = self.search(key, get_indexes=True)
+        except KeyError:
+            return None
         self.T[i].pop(j)
 
 
